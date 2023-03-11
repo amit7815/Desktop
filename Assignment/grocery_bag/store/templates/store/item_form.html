@@ -1,0 +1,24 @@
+{% extends 'store/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Add Item{% endblock title %}
+
+{% block content %}
+
+<div class='col-lg-4 mx-auto border rounded m-4 p-3'>
+{% if 'createitem' in request.path %}
+<h2>Add grocery Item</h2>
+{% else %}
+<h2>Update grocery Item</h2>
+{% endif %}
+<hr class="bg-danger">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{form|crispy}}
+            {% comment %} <label for="exampleFormControlTextarea1" class="display-5">Create Your Post Here</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="text" rows="3" required></textarea> {% endcomment %}
+        </div>
+        <button class="btn btn-block btn-outline-success">{% if 'createitem' in request.path %}Add {% else %} Update {% endif %} </button>
+    </form>
+</div>
+{% endblock content %}

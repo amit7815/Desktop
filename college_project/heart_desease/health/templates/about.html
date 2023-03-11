@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<section class="about py-5">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="title-section mb-md-5 mb-4">
+				<h3 class="w3ls-title text-uppercase text-bl font-weight-bold">About Us</h3>
+			</div><hr/>
+
+				<div>
+					<img src="{% static 'images/aboutheart.jfif' %}" alt="" class="img-fluid" />
+				</div>
+				<div>
+					<h6 class="subheading-w3ls text-uppercase text-bl mb-4">Predicting presence of Heart Diseases using Machine Learning</h6>
+					<p>Machine Learning is used across many spheres around the world. The healthcare industry is no exception. Machine Learning can play an essential role in predicting presence/absence of Locomotor disorders, Heart diseases and more. Such information, if predicted well in advance, can provide important insights to doctors who can then adapt their diagnosis and treatment per patient basis.</p>
+					<p>In this article, I’ll discuss a project where I worked on predicting potential Heart Diseases in people using Machine Learning algorithms. The algorithms included K Neighbors Classifier, Support Vector Classifier, Decision Tree Classifier and Random Forest Classifier. The dataset has been taken from Kaggle. My complete project is available at Heart Disease Prediction.</p>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+	<!-- //about -->
+
+	<!-- banner bottom -->
+	<div class="section-2">
+		<div class="container-fluid">
+			<div class="row slide">
+				<div class="col-xl-3">
+
+				</div>
+				<div class="col-xl-6 triple-sec p-5">
+					<h5 class="text-wh font-weight-bold">Opening Hours</h5>
+					<ul class="list-unstyled text-wh mt-4">
+						<li class="clearfix py-3">
+							<span class="float-left"> Monday - Friday </span>
+							<div class="value float-right"> 9.00 - 20.00 </div>
+						</li>
+						<li class="clearfix border-top border-bottom py-3">
+							<span class="float-left"> Saturday </span>
+							<div class="value float-right"> 10.00 - 16.00 </div>
+						</li>
+						<li class="clearfix py-3">
+							<span class="float-left"> Sunday </span>
+							<div class="value float-right"> 9.30 - 18.00 </div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-xl-3">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //banner bottom -->
+	<!-- doctor form -->
+
+	<!-- //doctor form -->
+
+{% endblock  %}

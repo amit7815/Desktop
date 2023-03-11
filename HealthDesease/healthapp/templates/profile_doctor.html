@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<style>
+    .div1{
+    color:green;
+    }
+    .div2{
+    color:red;
+    }
+</style>
+<div class="container" style="width:60%;margin-top:2%;margin-bottom:5%;background:white;border-radius:2%;border:1px solid grey">
+    <h2 style="font-weight:bold;font-family : 'Monotype Corsiva' ; color : black ;margin-top:2%" align="center">My Detail</h2>
+
+<div align="left" class="container-fluid" style="width:100%;margin-bottom:5%">
+    <hr><div class="row" >
+        <div class="col-md-6 div2 text-primary">
+            <strong>Full Name</strong>
+        </div>
+        <div class="col-md-6 div1 text-info">
+            {{pro.user.first_name}} {{pro.user.last_name}}
+        </div>
+    </div><hr>
+
+
+    <div class="row">
+        <div class="col-md-6 div2 text-primary ">
+            <strong>Email Id</strong>
+        </div>
+        <div class="col-md-6 div1 text-info">
+            {{pro.user.email}}
+        </div>
+    </div><hr>
+    <div class="row">
+        <div class="col-md-6 div2 text-primary">
+            <strong>Username</strong>
+        </div>
+        <div class="col-md-6 div1 text-info">
+            {{pro.user.username}}
+        </div>
+    </div><hr>
+
+    
+
+
+     <div class="row">
+        <div class="col-md-6 div2 text-primary">
+            <strong>Contact</strong>
+        </div>
+        <div class="col-md-6 div1 text-info">
+            {{pro.contact}}
+        </div>
+     </div><hr>
+
+    <div class="row">
+        <div class="col-md-6 div2 text-primary">
+            <strong>Address</strong>
+        </div>
+        <div class="col-md-6 div1 text-info">
+            {{pro.address}}
+        </div>
+    </div><hr>
+    {% ifnotequal error "pat" %}
+    <div class="row">
+        <div class="col-md-6 div2 text-primary">
+            <strong>Specialist :</strong>
+        </div>
+        <div class="col-md-6 div1 text-info">
+            {{pro.category}}
+        </div>
+    </div><hr>
+    {% endifnotequal %}
+    <div class="login px-sm-12" style="width:100%">
+    <a href="{% url 'edit_profile' %}">
+        <button class="btn btn-outline-secondary submit mt-4" style="width:100%">Update Detail</button>
+    </a>
+    </div>
+</div>
+</div>
+{% endblock %}

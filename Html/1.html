@@ -1,0 +1,39 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Email</title>
+	</head>
+	<body>
+		<a href="mailto:yadavamit14801@gmail.com?subject=Reaching%20Out&body=How%20are%20you">Email</a>
+	</body>
+</html>
+
+
+1  just remember that a branch essentially says "I want to include the work of this commit and all parent commits.
+2	Here we will create a new branch named newImage.  git branch newImage
+3	tell git we want to checkout the branch with      git checkout newImage
+
+4	Note: In Git version 2.23, a new command called git switch was introduced to eventually replace git checkout, which is somewhat overloaded as a command (it does a bunch of separate things). The lessons here will still use checkout instead of switch because most people won't have access to switch yet, but support for the new command works in the app if you want to try it out! 
+
+5  if you want to create a new branch AND check it out at the same time, you can simply type git checkout -b [yourbranchname].    git checkout -b newImage
+
+6 The first method to combine work that we will examine is git merge. Merging in Git creates a special commit that has two unique parents. A commit with two parents essentially means "I want to include all the work from this parent over here and this one over here, and the set of all their parents.
+
+7 Detaching HEAD
+Detaching HEAD just means attaching it to a commit instead of a branch. This is what it looks like beforehand:
+
+HEAD -> main -> C1
+
+8 You're an expert on relative refs now, so let's actually use them for something.
+
+One of the most common ways I use relative refs is to move branches around. You can directly reassign a branch to a commit with the -f option. So something like:
+
+git branch -f main HEAD~3
+
+moves (by force) the main branch to three parents behind HEAD.
+
+9  There we go! Relative refs gave us a concise way to refer to C1 and branch forcing (-f) gave us a way to quickly move a branch to that location.
+
+
+
+

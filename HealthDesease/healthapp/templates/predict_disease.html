@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+		<div class="container py-xl-5 py-lg-3">
+			<div class="title-section mb-md-5 mb-4">
+				<h6 class="w3ls-title-sub" style="color:black"></h6>
+				<h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Heart Prediction Result</h3>
+			</div><hr/>
+			<div class="login px-sm-12" style="width:100%">
+
+                <h1 align='center' style='color:black'>Predicted output</h1><hr><center><p>
+                    <div class="form-group row">
+                        <div class="col-md-6" style="border:1px solid black;padding:6px;background:blue;color:white">
+                            <label><b>Model Name</b></label>
+                        </div>
+                        <div class="col-md-6" style="border:1px solid black;padding:6px;background:blue;color:white">
+                            <label><b>Accuracy</b></label>
+                        </div>
+                        {% comment %} {% for i in accuracy %} {% endcomment %}
+                        <div class="col-md-6" style="border:1px solid black;padding:6px">
+                            <label><b>{{accuracy|slice:"2:29"}}</b></label>
+                        </div>
+                        <div class="col-md-6" style="border:1px solid black;padding:6px">
+                            <label>{{accuracy|slice:"34:40"}}</label>
+                        </div>
+                        <div class="col-md-6" style="border:1px solid black;padding:6px">
+                            <label><b>{{accuracy|slice:"44:68"}}</b></label>
+                        </div>
+                        <div class="col-md-6" style="border:1px solid black;padding:6px">
+                            <label>{{accuracy|slice:"73:79"}}</label>
+                        </div>
+                        <div class="col-md-6" style="border:1px solid black;padding:6px">
+                            <label><b>{{accuracy|slice:"83:104"}}</b></label>
+                        </div>
+                        <div class="col-md-6" style="border:1px solid black;padding:6px">
+                            <label>{{accuracy|slice:"108:114"}}</label>
+                        </div>
+                        <div class="col-md-6" style="border:1px solid black;padding:6px">
+                            <label><b>{{accuracy|slice:"118:145"}}</b></label>
+                        </div>
+                        <div class="col-md-6" style="border:1px solid black;padding:6px">
+                            <label>{{accuracy|slice:"149:155"}}</label>
+                        </div>
+                        {% comment %} {% endfor %} {% endcomment %}
+                    
+                    </div>
+                {% if pred == "0" %}
+                <span style='color:green'>You are healthy.</span>
+                {% else %}
+                <span style='color:red'>You are Unhealthy, Need to Checkup. severity level {{accuracy|slice:"171:178"}}</span>
+                {% endif %}
+
+            </p></center>
+
+			</div>
+             {% if pred != "0" and doctor != "" %}
+
+            <div class="container-fluid" style="width:90%;margin-top:3%">
+                    <div class="container-fluid">
+                        <h1 align="center" style="font-weight:bold;font-family : 'Monotype Corsiva' ; color : #E6120E ;margin-top:4%">You may contact this Doctor</h1>
+                         </div><hr>
+                                <table id="example" class="display" style="width:100%">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Full Name</th>
+                                      <th>Email</th>
+                                      <th>Contact</th>
+                                      <th>Address</th>
+
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              {% for i in doctor %}
+                                <tr>
+                                  <td>{{forloop.counter}}</td>
+                                  <td>{{i.user.first_name}} {{i.user.last_name}}</td>
+                                  <td>{{i.user.email}}</td>
+                                  <td>{{i.contact}}</td>
+                                  <td>{{i.address}}</td>
+                              </tr>
+                              {% empty %}
+                              <tr>
+                                  <td colspan="5">No Record Found.</td>
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                      </table>
+                  </div>
+            {% endif %}
+		</div>
+
+{% endblock %}

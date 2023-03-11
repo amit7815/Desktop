@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+
+	
+		<div class="container py-xl-5 py-lg-3">
+			{% if predictiondata %}
+
+			<div class="title-section mb-md-5 mb-4">
+				<h6 class="w3ls-title-sub"></h6>
+				<h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Result After Prediction</h3>
+			</div><hr/>
+
+
+			<div class="form-group row">
+				<div class="col-md-6" style="border:1px solid black;padding:6px;background:blue;color:white">
+					<label><b>Model Name</b></label>
+				</div>
+				<div class="col-md-6" style="border:1px solid black;padding:6px;background:blue;color:white">
+					<label><b>Prediction Output</b></label>
+				</div>
+				{% for i, j in predictiondata.items %}
+				<div class="col-md-6" style="border:1px solid black;padding:6px">
+					<label><b>{{i}}</b></label>
+				</div>
+				<div class="col-md-6" style="border:1px solid black;padding:6px">
+					<label>{{j}}</label>
+				</div>
+				{% endfor %}
+			
+			</div>
+
+			{% else %}
+
+
+
+			
+			<div class="title-section mb-md-5 mb-4">
+				<h6 class="w3ls-title-sub"></h6>
+				<h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Select your symptoms</h3>
+			</div><hr/>
+			<div class="login px-sm-12" style="width:100%">
+				<form action="" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group row">
+
+						{% for i in alldisease %}
+						<div class="col-md-3" style="border:1px solid black;padding:6px">
+	
+							<label class="col-md-10">{{i}}</label>
+					
+						
+							<input class="col-md-2" type="radio" name="{{i}}" style="width:30px;height:15px">
+					
+						</div>
+						{% endfor %}
+
+					
+					
+					</div>
+					<button type="submit" class="btn btn-block btn-success submit mt-4">Send Data</button>
+				</form>
+
+			</div>
+			{% endif %}
+			{{doctor.user.email}}
+			{% if doctor != "" %}
+
+            <div class="container-fluid" style="width:90%;margin-top:3%">
+                    <div class="container-fluid">
+                        <h1 align="center" style="font-weight:bold;font-family : 'Monotype Corsiva' ; color : #E6120E ;margin-top:4%">You may contact this Doctor</h1>
+                         </div><hr>
+                                <table id="example" class="display" style="width:100%">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>Full Name</th>
+                                      <th>Email</th>
+                                      <th>Contact</th>
+                                      <th>Address</th>
+
+                                  </tr>
+                              </thead>
+                              <tbody>
+                              {% comment %} {% for i in doctor %} {% endcomment %}
+                                <tr>
+                                  <td>{{forloop.counter}}</td>
+                                  <td>{{doctor.user.first_name}} {{i.user.last_name}}</td>
+                                  <td>{{doctor.user.email}}</td>
+                                  <td>{{doctor.contact}}</td>
+                                  <td>{{doctor.address}}</td>
+                              </tr>
+                              {% comment %} {% empty %} {% endcomment %}
+                              {% comment %} <tr>
+                                  <td colspan="5">No Record Found.</td>
+                              </tr> {% endcomment %}
+                              {% comment %} {% endfor %} {% endcomment %}
+                          </tbody>
+                      </table>
+                  </div>
+            {% endif %}
+		</div>
+	<!-- //register -->
+
+{% endblock %}

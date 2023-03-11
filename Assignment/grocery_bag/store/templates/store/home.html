@@ -1,0 +1,51 @@
+{% extends 'store/base.html' %}
+
+{% block title %} Home{% endblock title %}
+
+{% block content %}
+<div class="container my-4">
+  <div>
+    <h2>View Grocery List</h2>
+    <hr class="bg-danger">
+  </div>
+  <div class="row">
+    {% for item in data %}
+    <div class="col-md-4 mt-5">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{item.name}}</h5>
+          <div class="row">
+            <div class="col-4 mr-auto">{{item.quantity}}</div>
+            <div class="col-8">
+              {% if item.status == 'NOT AVAILABLE' %}
+              <span class="card-text text-justify text-danger">{{item.status}}</span>
+              {% elif item.status == 'BOUGHT' %}
+              <span class="card-text text-justify text-success">{{item.status}}</span>
+              {% else %}
+              <span class="card-text text-justify text-primary">{{item.status}}</span>
+              {% endif %}
+            </div>
+          </div>
+          
+
+          {% comment %} {% if request.user.is_authenticated %}
+            {% if request.user == item.user  %}
+            <a href="/updateitem/{{item.id}}" class="card-link btn btn-outline-success px-4 mt-4">Update</a>
+            <a href="/deleteitem/{{item.id}}" class="card-link btn btn-outline-danger px-4 mt-4">Delete</a>
+            {% else %}
+            <a href="" class="card-link btn btn-outline-success px-4 mt-4">Update</a>
+            <a href="" class="card-link btn btn-outline-danger px-4 mt-4">Delete</a>
+            {% endif %}
+          {% else %}
+          <a href="/login" class="card-link btn btn-outline-success px-4 mt-4">Update</a>
+          <a href="/login" class="card-link btn btn-outline-danger px-4 mt-4">Delete</a>
+          {% endif %} {% endcomment %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+{% endblock content %}

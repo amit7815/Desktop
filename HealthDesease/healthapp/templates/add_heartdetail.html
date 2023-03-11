@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+	<!-- register -->
+
+
+
+		<div class="container py-xl-5 py-lg-3">
+			<div class="title-section mb-md-5 mb-4">
+				<h6 class="w3ls-title-sub"></h6>
+				<h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Add Heart Parameters</h3>
+			</div><hr/>
+			<div class="login px-sm-12" style="width:100%">
+				<form action="" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group row">
+						<div class="col-md-1">
+						<label data-toggle="tooltip" title="amit" data-placement="top">Age</label>
+						<input type="text" class="form-control" name="age"  required="">
+						</div>
+					<div class="col-md-1">
+						<label>Sex</label>
+						<input type="text" class="form-control" name="sex"  required="">
+						</div>
+						<div class="col-md-1">
+							<label data-toggle="tooltip" title="Chest Pain" data-placement="top">CP</label>
+							<input type="text" class="form-control" name="cp"  required="">
+							</div>
+						<div class="col-md-1">
+								<label data-toggle="tooltip" title="Resting Blood Pressure" data-placement="top">Trestbps</label>
+								<input type="text" class="form-control" name="trestbps"  required="">
+								</div>
+								<div class="col-md-1">
+									<label>Cholestrol</label>
+									<input type="text" class="form-control" name="chole"  required="">
+									</div>
+						<div class="col-md-1">
+							<label data-toggle="tooltip" title="Fasting Blood Sugar" data-placement="top">Fbs</label>
+							<input type="text" class="form-control" name="fbs"  required="">
+							</div>
+						<div class="col-md-1">
+							<label>Restecg</label>
+							<input type="text" class="form-control" name="restecg"  required="">
+							</div>
+					
+					
+					
+					
+					<div class="col-md-1">
+						<label data-toggle="tooltip" title="Maximum Heart Rate" data-placement="top">Thalach</label>
+						<input type="text" class="form-control" name="thalach"  required="">
+						</div>
+					<div class="col-md-1">
+						<label data-toggle="tooltip" title="Exercise Included Engina" data-placement="top">Exang</label>
+						<input type="text" class="form-control" name="exang"  required="">
+						</div>
+					<div class="col-md-1">
+						<label>OldPeak</label>
+						<input type="text" class="form-control" name="old_peak"  required="">
+						</div>
+
+					<div class="col-md-1">
+						<label>Slope</label>
+						<input type="text" class="form-control" name="slope"  required="">
+						</div>
+					
+						<div class="col-md-1">
+							<label data-toggle="tooltip" title="No of Major Vessels" data-placement="top">CA</label>
+							<input type="text" class="form-control" name="ca"  required="">
+							</div>
+						<div class="col-md-1">
+							<label data-toggle="tooltip" title="Thalassemia Value" data-placement="top">Thal</label>
+							<input type="text" class="form-control" name="thal"  required="">
+							</div>
+
+					</div>
+					<button type="submit" class="btn btn-block btn-success submit mt-4">Submit</button>
+				</form>
+			</div>
+		</div>
+	<!-- //register -->
+
+{% endblock %}

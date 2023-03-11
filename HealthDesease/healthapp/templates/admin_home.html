@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container-fluid" style="margin-top:2%;width:100%">
+    <div class="container-fluid">
+        <h1 align="center" style="font-weight:bold;font-family:roman">ADMIN DASHBOARD</h1><hr/>
+    </div>
+             <div class="row">
+
+			        <div class="col-md-3" style="border-radius:100%" ><a style="text-decoration:none" href="{% url 'view_doctor' %}">
+						<div style="border-radius:100%;margin:1%;padding:10px;background:green;color:white;">
+						<h3 style="font-weight:bold;font-size:35px ;padding-left:70px;padding-top:20px;">{{doc}}</h3><br/>
+						        <h4 style="font-weight:bold;padding-left:40px;">Total Doctors</h4>
+							</div></a>
+					</div>
+			        <div class="col-md-3" style="border-radius:100%" ><a style="text-decoration:none" href="{% url 'view_doctor' %}">
+						<div style="border-radius:100%;margin:1%;padding:10px;background:Darkslategrey;color:white;">
+						<h3 style="font-weight:bold;font-size:35px ;padding-left:70px;padding-top:20px;">{{pat}}</h3><br/>
+						        <h4 style="font-weight:bold;padding-left:40px;">Total Users</h4>
+							</div></a>
+					</div>
+			        <div class="col-md-3" style="border-radius:100%" ><a style="text-decoration:none" href="{% url 'view_doctor' %}">
+						<div style="border-radius:100%;margin:1%;padding:10px;background:grey;color:white;">
+						<h3 style="font-weight:bold;font-size:35px ;padding-left:70px;padding-top:20px;">{{feed}}</h3><br/>
+						        <h4 style="font-weight:bold;padding-left:40px;">Total Feedback</h4>
+							</div></a>
+					</div>
+			        <div class="col-md-3" style="border-radius:100%;text-decoration:none;" ><a style="text-decoration:none" href="{% url 'view_doctor' %}">
+						<div style="border-radius:100%;margin:1%;padding:10px;background:Darkslategrey;color:white;">
+						<h3 style="font-weight:bold;font-size:35px ;padding-left:70px;padding-top:20px;">{{dis}}</h3><br/>
+						        <h4 style="font-weight:bold;padding-left:40px;">Searched Quantity</h4>
+							</div></a>
+					</div>
+
+
+					
+
+
+					
+
+
+             </div>
+		</div>
+
+	<div>
+      <!--<div class="container">
+
+        <div class="row pt-5 mt-5 text-center">
+          <div>
+            <p style = "font-size : 30pt ; color : #FF0000 ; font-weight : bold">
+
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All Rights Reserved <span style = "color : brown">|</span> <span style = "color : #006400">This website is made with <i class="fas fa-heart icon-heart text-warning" aria-hidden="true"></i> by </span><a class= "glow" href="#" target="_blank" >Harish Panjwani</a>
+
+            </p>
+          </div>
+
+        </div>
+      </div>-->
+
+    </div>
+{% endblock %}
